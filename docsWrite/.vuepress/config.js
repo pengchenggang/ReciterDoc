@@ -19,6 +19,7 @@ module.exports = {
     nav: [
       { text: 'Home', link: '/' },
       { text: '资料库', link: '/documents/' },
+      { text: 'GitHub', link: 'https://github.com/pengchenggang/ReciterDoc' },
       // { text: 'External', link: 'https://google.com' },
       // {
       //   text: 'Languages',
