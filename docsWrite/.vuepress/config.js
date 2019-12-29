@@ -1,6 +1,6 @@
 module.exports = {
   base: '/ReciterDoc/',
-  dest: 'docs',
+  dest: './docs',
   title: 'Reciter_资料库',
   description: 'Reciter_资料库 代码合集',
   plugins: ['@vuepress/back-to-top'],
