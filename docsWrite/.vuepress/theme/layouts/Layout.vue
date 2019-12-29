@@ -3,7 +3,7 @@
     <template #sidebar-top>
       <div class="sidebartopads">
         <div style="font-size:12px; margin-bottom:1rem;">特别赞助商</div>
-        <div><img src='/assets/img/vscodeAds.png'
+        <div><img src='../assets/img/vscodeAds.png'
                width="220" /></div>
       </div>
     </template>
