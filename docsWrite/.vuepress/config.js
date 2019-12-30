@@ -3,7 +3,13 @@ module.exports = {
   dest: './docs',
   title: 'Reciter_资料库',
   description: 'Reciter_资料库 代码合集',
-  plugins: ['@vuepress/back-to-top'],
+  plugins: ['@vuepress/back-to-top',
+    ['container', {
+      type: 'vue',
+      before: '<pre class="vue-container"><code>',
+      after: '</code></pre>'
+    }],
+  ],
 
   markdown: {
     lineNumbers: true

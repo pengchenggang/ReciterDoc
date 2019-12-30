@@ -19,3 +19,43 @@ JSON.parse(JSON.stringify(data))
 Object.assign({}, obj)
 Object.assign(target, obj)
 ```
+
+
+## import 多文件导入技巧
+
+**目录结构**
+
+::: vue
+.
+└── modelName
+    └── etc
+        ├── `columns.js` 
+        └── `fillEditorRows.js`
+:::
+
+**引入代码**
+
+```js
+import { columns, fillEditorRows } from './etc'
+```
+
+## json 配置 返回过滤函数
+
+```js
+[
+  'container',
+  {
+    type: 'vue',
+    before: '<pre class="vue-container"><code>',
+    after: '</code></pre>'
+  }
+],
+[
+  'vuepress-plugin-container',
+  {
+    type: 'theorem',
+    before: info => `<div class="theorem"><p class="title">${info}</p>`,
+    after: '</div>',
+  },
+],
+```
