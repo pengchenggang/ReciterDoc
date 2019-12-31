@@ -20,6 +20,13 @@ Object.assign({}, obj)
 Object.assign(target, obj)
 ```
 
+**方式4：对象可以使用**
+```js
+{...default, ...obj}
+[...default, ...obj]
+```
+> 之前用 Object.assign(target, obj)，忘记浅拷贝的问题，搞的很不愉快啊！
+
 
 ## import 多文件导入技巧
 
@@ -29,9 +36,18 @@ Object.assign(target, obj)
 .
 └── modelName
     └── etc
+        ├── `index.js` 
         ├── `columns.js` 
         └── `fillEditorRows.js`
 :::
+
+**index.js** 进行集中处理
+```js
+import columns from './columns'
+import fillEditorRows from './fillEditorRows'
+
+export { columns, fillEditorRows }
+```
 
 **引入代码**
 

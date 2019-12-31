@@ -56,6 +56,7 @@ function getDocuments (title) {
       'ES6Loop',
       'ES6HundredQuestions',
       'JavaHundredQuestions',
+      'FormZen',
       'Markdown'
     ]
   }]
