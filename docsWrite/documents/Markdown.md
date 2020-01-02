@@ -138,12 +138,13 @@ $(document).ready(function () {
 
 ## 图片引入
 输入
-```
+```js
 ![RUNOOB 图标](http://static.runoob.com/images/runoob-logo.png)
+<img :src="$withBase('/assets/img/vscodeAds.png')" />
 ```
 输出
 
-![](/assets/img/vscodeAds.png)
+<img :src="$withBase('/assets/img/vscodeAds.png')" />
 
 ## 表格引入
 输入

@@ -10,7 +10,13 @@ module.exports = {
       after: '</code></pre>'
     }],
   ],
-
+  // configureWebpack: {
+  //   resolve: {
+  //     alias: {
+  //       '@base': 'ReciterDoc/'
+  //     }
+  //   }
+  // },
   markdown: {
     lineNumbers: true
   },
