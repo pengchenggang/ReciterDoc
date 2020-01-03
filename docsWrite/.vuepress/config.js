@@ -11,7 +11,6 @@ module.exports = {
     }],
     ['@vuepress/medium-zoom', {
       selector: 'div.content__default img',
-
       options: {
         background: 'rgba(25, 18, 25, 0.9)', // rgba(25, 18, 25, 0.9),
       }
