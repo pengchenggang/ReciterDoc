@@ -9,6 +9,13 @@ module.exports = {
       before: '<pre class="vue-container"><code>',
       after: '</code></pre>'
     }],
+    ['@vuepress/medium-zoom', {
+      selector: 'div.content__default img',
+
+      options: {
+        background: 'rgba(25, 18, 25, 0.9)', // rgba(25, 18, 25, 0.9),
+      }
+    }]
   ],
   // configureWebpack: {
   //   resolve: {
