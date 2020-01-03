@@ -161,3 +161,38 @@ function getHunyinxianzhuang () {
 }
 ```
 
+## 外层调用组件代码
+**模板**
+```js
+<h2>2-1.表格标题</h2>
+<FormZen :formRows="row2_1"
+          :formData.sync="row2_1Data"
+          :formRules="row2_1Rules">
+  <template slot="top"
+            slot-scope="{ data, refs }">
+    <Button type="primary"
+            @click="btnClickHandle(data, refs)"
+            style="float:left;">确定1</Button>
+  </template>
+  <template slot="key3">
+    <Input v-model="row2_1Data.key3"
+            placeholder="请输入"
+            style="width: 100%" />
+  </template>
+</FormZen>
+```
+
+**方法**
+```js
+methods: {
+    btnClickHandle (data, refs) {
+      refs.formRef.validate((valid) => {
+        if (valid) {
+          this.$Message.success('Success!');
+        } else {
+          this.$Message.error('Fail!');
+        }
+      })
+    }
+  },
+```
