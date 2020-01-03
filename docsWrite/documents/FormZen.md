@@ -28,6 +28,7 @@ export default {
 ```js
 {
   headerTitle: '标题名称:',
+  key: 'key1', // key值 很重要 每个组件都要有key值
   type: 'input', // input 下拉列表 slot radio checkbox date
   arr: getRadioArr(),
   slot: 'name',
