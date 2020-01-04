@@ -42,6 +42,8 @@ export default {
   itemContent: 'text', // 内容框直接显示文字 type需要改成 text
   flex01: true, // 内容宽度 不进行弹性
   colWidth: '100px', // 配合flex01 对竖着的列进行优化
+  max: true, // 输入框最大化
+  required: true, // 带红色星星 必填项
   
 },
 
