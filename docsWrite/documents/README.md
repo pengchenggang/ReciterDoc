@@ -1,7 +1,5 @@
 # 介绍
 
-## 常用链接
-
 * [pengchenggang.github.io/ReciterDoc](https://pengchenggang.github.io/ReciterDoc/)
 * [markdown教程](https://www.runoob.com/markdown/md-image.html)
 * [vuepress](https://vuepress.vuejs.org/zh/guide/)
