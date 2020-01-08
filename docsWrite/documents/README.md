@@ -9,7 +9,13 @@
 * [json-server](https://github.com/typicode/json-server)
 * [KOA](https://koa.bootcss.com/)
 * [nestjs](https://docs.nestjs.com/)
+* [vant](https://youzan.github.io/vant/#/zh-CN/home)
+* [Koa2进阶学习笔记](https://github.com/chenshenhai/koa2-note)
+* [typeorm](https://typeorm.io/#/connection) `数据库映射`
+* [typeorm-KOA](https://github.com/typeorm/typescript-koa-example)
+* [typeorm-generator](https://github.com/Kononnable/typeorm-model-generator)
 
 ## 其他
 
 * Chrome 插件 postman - REST Client
+* KOA 跨域 const cors = require('koa2-cors')
