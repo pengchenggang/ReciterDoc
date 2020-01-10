@@ -71,6 +71,9 @@ function getDocuments (title) {
       'MysqlHundredQuestions',
       'VueHundredQuestions',
       'FormZen',
+      'CommonComponents',
+      'GitHubExplore',
+      'IVIEWComponents',
       'Markdown'
     ]
   }]

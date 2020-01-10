@@ -14,8 +14,19 @@
 * [typeorm](https://typeorm.io/#/connection) `数据库映射`
 * [typeorm-KOA](https://github.com/typeorm/typescript-koa-example)
 * [typeorm-generator](https://github.com/Kononnable/typeorm-model-generator)
+* [SpringBootLearning](https://gitee.com/didispace/SpringBoot-Learning/tree/2.x)
 
 ## 其他
 
 * Chrome 插件 postman - REST Client
 * KOA 跨域 const cors = require('koa2-cors')
+
+## 学习资料
+
+| Study                      | WebSite |
+| -------------------------- | ------- |
+| [掘金](https://juejin.im/) | 单元格  |
+| 单元格                     | 单元格  |
+
+## 常用软件
+* Navicat Premium 数据库连接

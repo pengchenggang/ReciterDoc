@@ -129,3 +129,11 @@ export const hasOneOf = (targetarr, arr) => {
   return targetarr.some(_ => arr.indexOf(_) > -1)
 }
 ```
+
+## 滚动条置顶
+```js
+setScrollTop () {
+  let sst = this.$refs.tableInnerZen.$el.children[0].getElementsByClassName('ivu-table-body')[0]
+  sst.scrollTop = 0
+},
+```
