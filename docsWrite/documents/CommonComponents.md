@@ -63,6 +63,7 @@ import treeselectZenCountry from '@/components/treeselectZen/treeselectZenCountr
 
 ## tableZen 添加单选
 
+**根据iview Table的多选 改为单选**
 ```html
 <div :class="{ singleSelect }">
   ...

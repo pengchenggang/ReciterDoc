@@ -121,16 +121,20 @@ import { oneOf } from '@/libs/tools'
 
 ```js
 /**
- * @param {Array} target 目标数组
- * @param {Array} arr 需要查询的数组
- * @description 判断要查询的数组是否至少有一个元素包含在目标数组中
+ * @param {String|Number} value 要验证的字符串或数值
+ * @param {*} validList 用来验证的列表
  */
-export const hasOneOf = (targetarr, arr) => {
-  return targetarr.some(_ => arr.indexOf(_) > -1)
+export const oneOf = (value, validList) => {
+  for (let i = 0; i < validList.length; i++) {
+    if (value === validList[i]) {
+      return true
+    }
+  }
+  return false
 }
 ```
 
-## 滚动条置顶
+## 滚动条置顶scrollTop 
 ```js
 setScrollTop () {
   let sst = this.$refs.tableInnerZen.$el.children[0].getElementsByClassName('ivu-table-body')[0]
