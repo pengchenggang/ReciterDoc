@@ -109,9 +109,9 @@ methods: {
         } else {
           selection2 = [...selection]
         }
+        this.getOnSelectionChangeHandle(selection2)
       }
       // console.info('selection2', selection2)
-      this.getOnSelectionChangeHandle(selection2)
       // console.info('innerData', this.innerData)
       // console.info('onSele this.$refs.tableInnerZen.objData', this.$refs.tableInnerZen.objData)
     })

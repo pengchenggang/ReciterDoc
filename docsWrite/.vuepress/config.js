@@ -37,6 +37,7 @@ module.exports = {
     nav: [
       { text: 'Home', link: '/' },
       { text: '资料库', link: '/documents/' },
+      { text: '英语库', link: '/English/' },
       { text: 'GitHub', link: 'https://github.com/pengchenggang/ReciterDoc' },
       // { text: 'External', link: 'https://google.com' },
       // {
@@ -53,12 +54,21 @@ module.exports = {
     // }
     // sidebar: 'auto'
     sidebar: {
-      '/documents/': getDocuments('文档资料')
+      '/documents/': getDocuments('文档资料'),
+      '/English/': getEnglish('EnglishWord')
       // '/': ['']
     }
   }
 }
-
+function getEnglish (title) {
+  return [{
+    title,
+    collapsable: false,
+    children: [
+      ''
+    ]
+  }]
+}
 function getDocuments (title) {
   return [{
     title,

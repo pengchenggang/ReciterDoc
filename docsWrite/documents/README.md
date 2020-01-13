@@ -17,6 +17,7 @@
 * [SpringBootLearning](https://gitee.com/didispace/SpringBoot-Learning/tree/2.x)
 * [TypeScript视频教程](https://www.bilibili.com/video/av38379328?p=18)
 * [vscode-TypeScript](https://www.jianshu.com/p/7eabd4e838dc)
+* [百度脑图Git](https://github.com/fex-team/kityminder)
 
 ## 其他
 
