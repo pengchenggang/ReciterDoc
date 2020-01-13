@@ -1,5 +1,6 @@
 <template>
-  <div :class="{'naotuClassTop':naotuClass}">
+  <div class="naotuClassTopDefault"
+       :class="{'naotuClassTop':naotuClass}">
     <div :id="'km'+id"
          :class="{naotuClass}"
          style="height:500px;"></div>
@@ -54,8 +55,11 @@ export default {
 </script>
 
 <style>
+.naotuClassTopDefault {
+  position: relative;
+}
 .naotuClassTop {
-  position: fixed;
+  position: fixed !important;
   left: 0;
   top: 0;
   width: 100%;
@@ -67,12 +71,15 @@ export default {
   right: 0 !important;
   top: 0 !important;
   left: unset !important;
+  bottom: unset !important;
 }
 .naotuButtonClass {
   z-index: 1001;
-  position: relative;
-  left: 698px;
-  top: -23px;
+  position: absolute;
+  /* left: 698px; */
+  /* top: -23px; */
+  right: 0;
+  bottom: 0;
 }
 .naotuClass {
   z-index: 1000;
