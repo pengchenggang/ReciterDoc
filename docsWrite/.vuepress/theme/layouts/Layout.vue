@@ -23,4 +23,22 @@ export default {
 .sidebartopads {
   padding: 1.25rem 1.5rem 0 1.25rem;
 }
+
+/* 滚动条整体样式 */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  // box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background: #dddee1;
+}
+
+::-webkit-scrollbar-track {
+  // box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background: #f8f8f9;
+}
 </style>
