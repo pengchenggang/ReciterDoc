@@ -18,11 +18,14 @@
 * [TypeScript视频教程](https://www.bilibili.com/video/av38379328?p=18)
 * [vscode-TypeScript](https://www.jianshu.com/p/7eabd4e838dc)
 * [百度脑图Git](https://github.com/fex-team/kityminder)
+* [【Nest 极速指南】进阶篇之 Module](https://www.jianshu.com/p/f9fb190fc006)
 
 ## 其他
 
 * Chrome 插件 postman - REST Client
 * KOA 跨域 const cors = require('koa2-cors')
+* 发现 $emit 可以 return
+
 
 ## 学习资料
 
