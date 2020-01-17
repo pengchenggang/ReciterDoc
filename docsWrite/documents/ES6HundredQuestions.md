@@ -141,3 +141,50 @@ setScrollTop () {
   sst.scrollTop = 0
 },
 ```
+
+## JS中如何实现函数队列？
+
+```js
+var stack = [];
+
+// 定义 index 和 next
+var index = 0;
+
+function next(){
+    var fn = stack[index];
+    index = index + 1;
+    if ( typeof fn == 'function' ){
+         fn();
+    }
+}
+
+function fn1(){
+    console.log('第一个调用');
+    next(); // stack 中每一个函数都必须调用`next`
+}
+
+stack.push(fn1);
+
+function fn2() {
+    setTimeout(function(){
+        console.log('第二个被调用');
+        next();
+    }, 0)
+}
+
+stack.push(fn2, function(){
+    console.log('第三个调用');
+    next();
+})
+
+next();
+```
+
+## some 替代 oneof
+`2020-01-17`
+
+```js
+let val = '1'
+['a','b'].some(_ => _ === val)
+some是有一个返回true，整体就是true
+```

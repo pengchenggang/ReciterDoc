@@ -101,6 +101,8 @@
 
 参考文章：[VsCode搭建springboot 并配置maven环境](https://blog.csdn.net/zhanaolu4821/article/details/84873312)
 
+GitHub: [https://github.com/pengchenggang/springBootInit](https://github.com/pengchenggang/springBootInit)
+
 ### 6. 创建@RestController和@RequestMapping("/")
 
 ```java

@@ -25,6 +25,11 @@
 * Chrome 插件 postman - REST Client
 * KOA 跨域 const cors = require('koa2-cors')
 * 发现 $emit 可以 return
+* svn 追责神器 blame vscode - SVN Gutter
+* 需要一个弹框队列
+* 禅道
+* threejs.org
+* java 切面 AOP
 
 
 ## 学习资料

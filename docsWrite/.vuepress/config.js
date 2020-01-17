@@ -14,6 +14,9 @@ module.exports = {
       options: {
         background: 'rgba(25, 18, 25, 0.9)', // rgba(25, 18, 25, 0.9),
       }
+    }],
+    ['@vuepress/search', {
+      searchMaxSuggestions: 30
     }]
   ],
   // configureWebpack: {
@@ -84,7 +87,9 @@ function getDocuments (title) {
       'CommonComponents',
       'GitHubExplore',
       'IVIEWComponents',
-      'Markdown'
+      'Markdown',
+      'Cnblogs',
+      'Cnblogs2'
     ]
   }]
 }
