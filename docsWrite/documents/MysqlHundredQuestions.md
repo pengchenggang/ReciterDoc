@@ -14,3 +14,8 @@
 * ctrl+Q 新建查询 或者是 文件下的 查询表
 
 [参考](https://www.cnblogs.com/pengchenggang/p/10811989.html)
+
+## mysql 数据库 过大 调整 服务器监控 属性
+`2020-01-19`
+
+mysql 数据库 过大 调整 服务器监控 属性

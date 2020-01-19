@@ -63,6 +63,7 @@ export default {
   created () { },
   activated () { },
   mounted () { },
+  beforeUpdate () { },
   beforeDestroy () { }
 }
 </script>

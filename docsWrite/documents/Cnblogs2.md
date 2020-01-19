@@ -1111,7 +1111,742 @@ console.log(timetamp4);
   }
 ```
 
-第5页
+## iview modal 弹框 模板
+`2019-03-18 10:44`
 
+```html
+<!--
+* @description 上传图片
+* @fileName camera.vue
+* @author 彭成刚
+* @date 2019/03/18 10:17:04
+* @version V1.0.0
+!-->
+<template>
+  <div>
+    <Modal @on-cancel="modalCancel"
+           class="uploadPhoto"
+           v-model="modalVmodel"
+           width="900"
+           :mask-closable="false"
+           title="上传图片">
+      <div class='divFormClass'>
+        111
+      </div>
+
+      <div slot="footer">
+        <Button @click="modalCancel">关闭</Button>
+
+        <Button type="primary"
+                @click="modalSave">保存</Button>
+
+      </div>
+    </Modal>
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      modalVmodel: false
+    }
+  },
+
+  components: {},
+
+  computed: {},
+
+  mounted () {
+    this.modalVmodel = true
+  },
+
+  methods: {
+    modalCancel () {
+      this.modalVmodel = false
+    },
+    modalSave () { }
+  }
+}
+
+</script>
+<style lang='less' scoped>
+.uploadPhoto {
+  .divFormClass {
+    height: calc(~"100vh - 350px");
+    overflow-y: auto;
+    padding-right: 15px;
+  }
+}
+</style>
+```
+
+## FormItem label 属性 可以改成 slot模式 就能加入br回车了 iview
+`2019-03-18 09:16`
+
+```html
+<FormItem>
+        <div slot='label'>测试文字<br>测试文字:</div>
+        <Input v-model="formItem.姓名"></Input>
+      </FormItem>
+```
+
+
+## iview tabs里面放入 i-switch 注意slot不是写在 props里面
+`2019-03-14 15:19`
+
+```html
+<Tabs value="name1">
+        <TabPane :label="beforeSwitch"
+                 name="name1">事前填报</TabPane>
+        <TabPane label="事后填报"
+                 name="name2">事后填报</TabPane>
+      </Tabs>
+```
+
+```js
+beforeSwitch: (h) => {
+        return [
+          h('span', '事前填报'),
+          h('i-switch', {
+            props: {
+              size: 'large',
+              value: this.beforeSwitchVal
+            },
+            on: {
+              input (e) {
+                this.beforeSwitchVal = e
+              }
+            }
+          }, [
+            h('span', {
+              slot: 'open'
+            }, '开启'),
+            h('span', {
+              slot: 'close'
+            }, '关闭')
+          ])
+        ]
+      },
+```
+
+
+## autoHeight.vue 高度自适应
+`2019-03-11 14:37`
+
+```html
+<!--
+* @description 自适应高度
+* @fileName autoHeight.vue
+* @author 彭成刚
+* @date 2019/03/11 09:45:38
+* @version V1.0.0
+<autoHeight v-model="s1Height"
+                  :allHeight='0'
+                  :precent='20'
+                  :diffHeight='0'>
+  <table-s1 :height="s1Height"></table-s1>
+</autoHeight>
+!-->
+<template>
+  <div :style='styleHeight'>
+    <slot></slot>
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      allHeightData: 0,
+      styleHeight: ''
+    }
+  },
+  props: {
+    value: {
+      type: Number,
+      default: 0
+    },
+    noStyle: {
+      type: Boolean,
+      default: false
+    },
+    allHeight: {
+      type: Number,
+      default: 0
+    },
+    precent: {
+      type: Number,
+      default: 100
+    },
+    diffHeight: {
+      type: Number,
+      default: 0
+    }
+  },
+
+  components: {},
+
+  computed: {},
+
+  mounted () {
+    this.calcHeight()
+    window.addEventListener('resize', () => {
+      this.calcHeight()
+    })
+    // window.innerHeight
+  },
+  watch: {
+    'allHeight' (to, from) {
+      this.calcHeight()
+    },
+    '$route' (to, from) {
+      this.calcHeight()
+    }
+  },
+  methods: {
+    calcHeight () {
+      let retHeight
+      if (this.allHeight === 0) {
+        this.allHeightData = window.innerHeight
+      } else {
+        this.allHeightData = this.allHeight
+      }
+
+      retHeight = (this.allHeightData * this.precent / 100) - this.diffHeight
+      this.$emit('input', retHeight)
+
+      if (!this.noStyle) {
+        this.styleHeight = 'height: ' + retHeight + 'px; overflow-y:auto;'
+      }
+    }
+
+  }
+}
+
+</script>
+<style lang='less' scoped>
+</style>
+```
+
+
+
+
+## autoHeight # 动态高度添加 用 window.addEventListener('resize', function () {
+`2019-03-08 17:18`
+
+```js
+动态高度添加 用 window.addEventListener('resize', function () {
+
+mounted () {
+this.init()
+window.addEventListener('resize', function () {
+this.calcHeight()
+})
+},
+```
+
+## 谷歌  滚动条样式 scrollbar
+`2019-03-07 16:37`
+
+main.less
+
+:: 是css3 最新的伪类
+
+```css
+/*滚动条整体样式*/
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+  // box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background: #dddee1;
+}
+ 
+::-webkit-scrollbar-track {
+  // box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background: #f8f8f9;
+}
+```
+
+## iview table 普通表格样式
+`2019-03-07 14:12`
+
+```html
+<template>
+  <table>
+    <thead>
+      <tr>
+        <th>属性</th>
+        <th>说明</th>
+        <th>类型</th>
+        <th>默认值</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>mode</td>
+        <td>菜单类型，可选值为 <code>horizontal</code>（水平） 和 <code>vertical</code>（垂直）</td>
+        <td>String</td>
+        <td>vertical</td>
+      </tr>
+      <tr>
+        <td>theme</td>
+        <td>主题，可选值为 <code>light</code>、<code>dark</code>、<code>primary</code>，其中 primary 只适用于 <code>mode="horizontal"</code></td>
+        <td>String</td>
+        <td>light</td>
+      </tr>
+      <tr>
+        <td>active-name</td>
+        <td>激活菜单的 name 值</td>
+        <td>String | Number</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>open-names</td>
+        <td>展开的 Submenu 的 name 集合</td>
+        <td>Array</td>
+        <td>[]</td>
+      </tr>
+      <tr>
+        <td>accordion</td>
+        <td>是否开启手风琴模式，开启后每次至多展开一个子菜单</td>
+        <td>Boolean</td>
+        <td>false</td>
+      </tr>
+      <tr>
+        <td>width</td>
+        <td>导航菜单的宽度，只在 <code>mode="vertical"</code> 时有效，如果使用 <code>Col</code> 等布局，建议设置为 <code>auto</code></td>
+        <td>String</td>
+        <td>240px</td>
+      </tr>
+    </tbody>
+  </table>
+</template>
+<style>
+code {
+  display: inline-block;
+  background: #f7f7f7;
+  font-family: Consolas, Monaco, Andale Mono, Ubuntu Mono, monospace;
+  margin: 0 3px;
+  padding: 1px 5px;
+  border-radius: 3px;
+  color: #666;
+  border: 1px solid #eee;
+}
+table {
+  font-family: Consolas, Menlo, Courier, monospace;
+  font-size: 12px;
+  border-collapse: collapse;
+  border-spacing: 0;
+  empty-cells: show;
+  border: 1px solid #e9e9e9;
+  width: 100%;
+  margin-bottom: 24px;
+}
+table th {
+  background: #f7f7f7;
+  white-space: nowrap;
+  color: #5c6b77;
+  font-weight: 600;
+}
+table td,
+table th {
+  border: 1px solid #e9e9e9;
+  padding: 8px 16px;
+  text-align: left;
+}
+</style>
+<script>
+export default {
+  data () {
+    return {
+    }
+  },
+  methods: {
+   }
+}
+</script>
+```
+
+[https://run.iviewui.com/81gSEiQj](https://run.iviewui.com/81gSEiQj)
+
+
+
+## less算宽度 加~ width: calc(~"50% - 35px");
+`2019-03-06 13:36`
+
+less算宽度 加~ width: calc(~"50% - 35px");
+
+
+
+## 数组排序 sort
+`2019-03-06 09:08`
+
+```js
+this.dataShow = this.data.sort((a, b) => {
+return parseInt(a[this.innerOrderBy]) - parseInt(b[this.innerOrderBy])
+})
+```
+
+## vue iview render里面 没有双向绑定 renderHeader 要序列化 反序列 一下
+`2019-03-01 17:34`
+
+```js
+renderHeader: (h, params) => {
+            return [
+              h('RadioGroup', {
+                props: {
+                  value: '3',
+                  type: 'button'
+                },
+                on: {
+                  'on-change': value => {
+                    // params.index 行  params.column.key 列
+ 
+                    this.tableData.some((item, index, arr) => {
+                      item['rgOperation'] = value
+                    })
+                    let t = JSON.parse(JSON.stringify(this.tableData))
+                    this.tableData = t
+                  }
+                }
+              }, [
+                h('Radio', { props: { label: '1' } }, '覆盖'),
+                h('Radio', { props: { label: '2' } }, '追加'),
+                h('Radio', { props: { label: '3' } }, '忽略')
+              ])
+            ]
+          },
+```
+
+
+## iview upload on-format-error 事件 在 before-upload
+`2019-03-01 10:35`
+
+iview upload on-format-error 事件 在 before-upload 事件 之后，导致在before里面阻止上传后，监测事件失效，需要自己手工写
+
+
+## _ 下划线 vue mixins 混入 变量前有下划线 变量不起作用
+`2019-02-28 15:46`
+
+_ 下划线 vue mixins 混入 变量前有下划线 变量不起作用
+
+
+## class 写在 import的位置 类的名字第一个字母大写 后面没括号 ES6
+`2019-02-27 11:37`
+
+class 写在 import的位置 类的名字第一个字母大写 后面没括号
+
+class ObTableDataClass {}
+
+或者
+
+```js
+const ObTableDataClass = class {
+  init () {
+    console.info('class init')
+  }
+}
+```
+
+
+## vue 高度 动态更新计算 calcHeight watch $route
+`2019-02-26 12:00`
+
+```js
+ calcHeight () {
+      this.orgTreeHeight = window.innerHeight - 180
+      // this.tableHeight = window.innerHeight - 210
+      this.divHeight = window.innerHeight - 180
+    }
+
+  },
+  mounted () {
+    // console.info('jobOrgNum this', this)
+    window.onresize = () => {
+      this.calcHeight()
+    }
+  },
+  watch: {
+    '$route' (to, from) {
+      this.calcHeight()
+    }
+```
+
+
+## vue 自定义组件 v-model双向绑定、 父子组件同步通信【转】
+`2019-02-26 11:06`
+
+父子组件通信，都是单项的，很多时候需要双向通信。方法如下：
+
+1. 父组件使用：msg.sync="aa"  子组件使用$emit('update:msg', 'msg改变后的值xxx') 
+2. 父组件传值直接传对象，子组件收到对象后可随意改变对象的属性，但不能改变对象本身。
+3. 父组件使用： v-model 
+
+[https://www.cnblogs.com/pengchenggang/p/10436011.html](https://www.cnblogs.com/pengchenggang/p/10436011.html)
+
+
+## vue 异步请求数据后，用v-if，显示组件，这样初始化的值就在开始的时候传进去了
+`2019-02-24 15:52`
+
+请求到数据才会有的一个组件,并把数据传进组件中
+
+[https://www.cnblogs.com/LuckyWinty/p/6246698.html](https://www.cnblogs.com/LuckyWinty/p/6246698.html)
+
+
+
+## vue $parent 的上一级 有可能不是父组件，需要好几层$parent 如果这样 还不如用 this.$emit
+`2019-02-22 08:41`
+
+`vue $parent 的上一级 有可能不是父组件，需要好几层$parent 如果这样 还不如用 this.$emit`
+
+
+## vue render函数 {} 对象 说明文档
+`2019-02-21 14:26`
+
+Vue学习笔记进阶篇——Render函数
+
+[http://www.mamicode.com/info-detail-1906336.html](http://www.mamicode.com/info-detail-1906336.html)
+
+```js
+深入data object参数
+有一件事要注意：正如在模板语法中，v-bind:class和v-bind:style ，
+会被特别对待一样，在 VNode 数据对象中，下列属性名是级别最高的字段。
+该对象也允许你绑定普通的 HTML 特性，就像 DOM 属性一样
+比如 innerHTML (这会取代 v-html指令)。
+
+{
+  // 和`v-bind:class`一样的 API
+  ‘class‘: {
+    foo: true,
+    bar: false
+  },
+  // 和`v-bind:style`一样的 API
+  style: {
+    color: ‘red‘,
+    fontSize: ‘14px‘
+  },
+  // 正常的 HTML 特性
+  attrs: {
+    id: ‘foo‘
+  },
+  // 组件 props
+  props: {
+    myProp: ‘bar‘
+  },
+  // DOM 属性
+  domProps: {
+    innerHTML: ‘baz‘
+  },
+  // 事件监听器基于 `on`
+  // 所以不再支持如 `v-on:keyup.enter` 修饰器
+  // 需要手动匹配 keyCode。
+  on: {
+    click: this.clickHandler
+  },
+  // 仅对于组件，用于监听原生事件，而不是组件内部使用 `vm.$emit` 触发的事件。
+  nativeOn: {
+    click: this.nativeClickHandler
+  },
+  // 自定义指令. 注意事项：不能对绑定的旧值设值
+  // Vue 会为您持续追踪
+  directives: [
+    {
+      name: ‘my-custom-directive‘,
+      value: ‘2‘,
+      expression: ‘1 + 1‘,
+      arg: ‘foo‘,
+      modifiers: {
+        bar: true
+      }
+    }
+  ],
+  // Scoped slots in the form of
+  // { name: props => VNode | Array<VNode> }
+  scopedSlots: {
+    default: props => createElement(‘span‘, props.text)
+  },
+  // 如果组件是其他组件的子组件，需为 slot 指定名称
+  slot: ‘name-of-slot‘,
+  // 其他特殊顶层属性
+  key: ‘myKey‘,
+  ref: ‘myRef‘
+}
+```
+
+
+## params.row[params.column.key] vue h函数 当前单元格 h函数 div 属性 值或数组 render
+`2019-02-21 11:29`
+
+params.row[params.column.key] vue h函数 当前单元格 h函数 div 属性 值或数组 render
+
+
+
+## upload 上传按钮组件 iview
+`2019-02-20 17:51`
+
+[https://www.cnblogs.com/pengchenggang/p/10408139.html](https://www.cnblogs.com/pengchenggang/p/10408139.html)
+
+
+
+## 下拉列表事件 Dropdown iview
+`2019-02-20 15:22`
+
+```html
+<Dropdown @on-click="export">
+              <Button icon='md-log-out'>
+                000l
+                <Icon type="ios-arrow-down"></Icon>
+              </Button>
+              <DropdownMenu slot="list">
+                <DropdownItem name='exportAll'>000</DropdownItem>
+                <DropdownItem name='exportCurrent'>000</DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+```
+
+
+## this.treeData = JSON.parse(JSON.stringify(this.d)) 树的序列化反序列化
+`2019-02-19 13:40`
+
+this.treeData = JSON.parse(JSON.stringify(this.d)) 树的序列化反序列化
+
+
+## tree iview treeData json数据 添加 selected 数据 要进行vue.set 进行响应式添加
+`2019-02-19 11:19`
+
+tree iview treeData json数据 添加 selected 数据 要进行vue.set 进行响应式添加
+
+
+## this.$emit('on-select-change' emit里面不能写大写字母
+`2019-02-18 18:37`
+
+this.$emit('on-select-change' emit里面不能写大写字母
+
+刚试了下 也能写大写 但是 两边就都写一样就完了，就都写成带-的就完了
+
+
+## 多表单异步验证 可以用 Promise validate
+`2019-02-16 23:16`
+
+[https://www.jb51.net/article/140062.htm](https://www.jb51.net/article/140062.htm)
+
+vue动态绑定组件子父组件多表单验证功能的实现代码
+
+ 
+```html
+// 加载组件：每次下拉框监听则给changValue新赋值，
+// 如果下拉options的value从0开始则绑定组件时不用-1
+<component :is="componentName[changValue - 1]" ref="subjectChild" @isSubmit="getSubmit"></component>
+```
+
+## navicat 链接数据库查看的工具 可以同时查看各种数据库 MySql SqlServer
+`2019-02-16 09:50`
+
+navicat 链接数据库查看的工具 Navicat_Premium_10.0.11.0_XiaZaiBa
+
+
+## 清空表单方法 清空变量 iview modal
+`2019-02-15 18:32`
+
+方法一 通过json序列号和反序列号 清空一次数据 数据需要copy出来一份
+
+```js
+orgFormClearAllInput () {
+this.$refs.n1.formValidate = JSON.parse(JSON.stringify(this.$refs.n1.formValidate2))
+}
+```
+ 
+方法二
+```js
+clearFormData () {
+let form = {
+b0111: '',
+b0101: '',
+b0104: '',
+b0117: '',
+b0124: '',
+b0131: '',
+b0127: '',
+b0157b: '',
+remark: ''
+}
+this.formValidate = form
+}
+```
+ 
+新建一个变量 然后赋值，因为是新建变量，所以不会有指针的问题，不用 序列化和反序列化~
+
+this.$refs.n1.clearFormData()
+
+方法三
+
+form = {}
+所有属性全部undefined，然后判断属性是否undefined
+
+
+## iview modal 点击打开窗口，打开前先销毁里面的内容再打开 vif
+`2019-02-15 16:31`
+
+```html
+<Modal v-model="addSubOrgModal"
+           @on-cancel="addSubOrgCancel"
+           @on-visible-change="orgOnVisibleChange"
+           width="600"
+           :mask-closable="false"
+           title="新增下级机构">
+      <org-form ref="orgFormAdd"
+                v-if="addSubOrgModalVif"
+                org-add-id="orgAddId"></org-form>
+      <div slot="footer">
+        <Button @click="addSubOrgCancel">关闭</Button>
+        <Button type="primary"
+                @click="addSubOrgOk">保存</Button>
+
+      </div>
+    </Modal>
+```
+
+```js
+addSubOrg () {
+      // this.$Message.success('新增下级机构事件')
+      let seleArr = this.$refs.tables.$refs.tablesMain.getSelection()
+      if (seleArr.length !== 1) {
+        this.$Message.warning('请选择一条数据操作！')
+      } else {
+        this.addSubOrgModal = true
+        this.addSubOrgModalVif = false
+        this.$nextTick(() => {
+          this.addSubOrgModalVif = true
+          this.$nextTick(() => {
+            this.$refs.orgFormAdd.orgFormAddInit(seleArr[0])
+          })
+        })
+      }
+    },
+```
+
+
+## iview table 已选项的数据 this.$refs.tables.$refs.tablesMain.getSelection() 
+`2019-02-15 14:31`
+
+由于我这里table组件是套了两层组件 所以是进入了两个层次拿到的数据
+
+
+## Modal 高度 在里面css里写高 | iview
+`2019-02-15 13:25`
+
+```css
+.modalCss {
+height: 330px;
+overflow: auto;
+padding-right: 10px;
+}
+```
 
 

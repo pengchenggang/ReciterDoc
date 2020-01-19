@@ -46,3 +46,9 @@ familyUpdata: {
 **解决方案**
 
 props 的 value 将 type 和 default 全删了
+
+## vue $emit .sync update:
+`2020-01-19`
+
+```
+this.$emit('update:leftYear', val)

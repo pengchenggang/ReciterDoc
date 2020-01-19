@@ -89,7 +89,8 @@ function getDocuments (title) {
       'IVIEWComponents',
       'Markdown',
       'Cnblogs',
-      'Cnblogs2'
+      'Cnblogs2',
+      'Cnblogs3'
     ]
   }]
 }
