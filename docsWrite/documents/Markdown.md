@@ -136,11 +136,13 @@ $(document).ready(function () {
 
 [vuepress](https://vuepress.vuejs.org/zh/guide/)
 
-## 图片引入
+## 图片引入 imgz
 输入
 ```js
 ![RUNOOB 图标](http://static.runoob.com/images/runoob-logo.png)
 <img :src="$withBase('/assets/img/vscodeAds.png')" />
+
+<img :src="$withBase('/assets/cnblogsImg/vscodeAds.jpg')" />
 ```
 输出
 

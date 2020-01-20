@@ -30,14 +30,14 @@
 * 禅道
 * threejs.org
 * java 切面 AOP
-
+* 打基线 就是 类似 git分支
 
 ## 学习资料
 
-| Study                      | WebSite |
-| -------------------------- | ------- |
-| [掘金](https://juejin.im/) | 单元格  |
-| 单元格                     | 单元格  |
+| Study                      | WebSite                             |
+| -------------------------- | ----------------------------------- |
+| [掘金](https://juejin.im/) | [lodash](https://www.lodashjs.com/) |
+| 单元格                     | 单元格                              |
 
 ## 常用软件
 * Navicat Premium 数据库连接

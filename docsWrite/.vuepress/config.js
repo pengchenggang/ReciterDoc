@@ -90,7 +90,8 @@ function getDocuments (title) {
       'Markdown',
       'Cnblogs',
       'Cnblogs2',
-      'Cnblogs3'
+      'Cnblogs3',
+      'Cnblogs4'
     ]
   }]
 }
